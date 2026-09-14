@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRT Insights Technologies · ERP systems that run your whole business</title>
+<meta name="description" content="CRT helps mid-market businesses across Malaysia and Singapore plan, implement and support the systems they run on.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-spark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6cc6f0"/><stop offset=".55" stop-color="#007ab9"/><stop offset="1" stop-color="#002b5d"/></linearGradient>
+    <linearGradient id="g-stroke" gradientUnits="userSpaceOnUse" x1="3" y1="3" x2="21" y2="21"><stop offset="0" stop-color="#6cc6f0"/><stop offset=".5" stop-color="#007ab9"/><stop offset="1" stop-color="#002b5d"/></linearGradient>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path fill="url(#g-spark)" stroke="none" d="M12 1.5c.7 6 4.5 9.8 10.5 10.5-6 .7-9.8 4.5-10.5 10.5C11.3 16.5 7.5 12.7 1.5 12 7.5 11.3 11.3 7.5 12 1.5Z"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="19.5" r="1.2"/><circle cx="17" cy="19.5" r="1.2"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 4l9 5M5 10v7M9.5 10v7M14.5 10v7M19 10v7M3 20h18"/></symbol>
+    <symbol id="i-warehouse" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V9l9-5 9 5v11"/><path d="M7 20v-7h10v7M7 16h10"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 4 14h7l-1 7 9-11h-7Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18 14.4A5 5 0 0 1 20.5 19"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V10l5 3V10l5 3V10l5 3V5h3v15Z"/><path d="M7 17h2M12 17h2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3ZM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></symbol>
+    <symbol id="i-crane" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4h1l13 4H6M6 8l5 13M16 8v4"/><path d="M15 12h2v3h-2zM3 21h8"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M18.5 5.5l-1.7 1.7M7.2 16.8l-1.7 1.7"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4M10.5 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4A1.5 1.5 0 0 0 19 19l-5.5-10V3"/><path d="M7.5 15h9"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M14 10h5a1 1 0 0 1 1 1v10M3 21h18"/><path d="M8 8h2M8 12h2M8 16h2M17 14h.5M17 18h.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16"/><path d="m8 15 4-4 3 3 5-6"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4.75 4.75 0 0 1-.5 9.5Z"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13.5" width="4" height="6" rx="1.5"/><rect x="17" y="13.5" width="4" height="6" rx="1.5"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 5 10 5-10 5L2 10Z"/><path d="M6 12v4c2 2 10 2 12 0v-4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7a8 8 0 0 0-14.3 1M4 17a8 8 0 0 0 14.3-1"/><path d="M20 3v4h-4M4 21v-4h4"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2.1-1.2L14 3h-4l-.5 2.6a7 7 0 0 0-2.1 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2.1 1.2L10 21h4l.5-2.6a7 7 0 0 0 2.1-1.2l2.3.9 2-3.4-2-1.5c.1-.4.1-.8.1-1.2Z"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 16l-4-4 4-4M6 12h10"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="m8.5 13.5-1.5 7 5-2.5 5 2.5-1.5-7"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3Z"/></symbol>
+    <symbol id="i-playfill" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M8 5.5v13a1 1 0 0 0 1.52.85l10.4-6.5a1 1 0 0 0 0-1.7L9.52 4.65A1 1 0 0 0 8 5.5Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M5.2 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3.5 9h3.4v11.5H3.5ZM9.3 9h3.2v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3h-3.4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.7H9.3Z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M13.5 21v-7.4h2.5l.4-2.9h-2.9V8.9c0-.8.2-1.4 1.4-1.4h1.6V4.9A21 21 0 0 0 14.2 4.8c-2.3 0-3.9 1.4-3.9 4v2h-2.6v2.9h2.6V21Z"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav-shell">
+    <div class="nav-top">
+      <a class="brand" href="#top" aria-label="CRT Insights Technologies, back to top"><img src="assets/crt-logo-navy.png" alt="CRT Insights Technologies" width="1102" height="407"></a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#solutions">Solutions</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#events">Events</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary btn-sm nav-cta" href="#final"><span class="in"><span class="roll"><span>Book a Demo</span><span aria-hidden="true">Book a Demo</span></span></span></a>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel"><i></i><i></i></button>
+    </div>
+    <div class="nav-panel" id="nav-panel">
+      <div class="nav-panel-in">
+        <a href="#solutions">Solutions</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#events">Events</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="#final"><span class="in">Book a Demo</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-light" aria-hidden="true">
+    <div class="beams"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-copy">
+      <span class="tag"><span>20 Years of Excellence</span></span>
+      <h1 class="reveal" data-split="words">ERP systems that run your whole business</h1>
+      <p class="hero-desc reveal" data-split="chars">CRT helps mid-market businesses across Malaysia and Singapore plan, implement and support the systems they run on.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary up" style="--d:1s" href="#final"><span class="in"><span class="roll"><span>Book a Demo</span><span aria-hidden="true">Book a Demo</span></span></span></a>
+        <a class="btn btn-ghost up" style="--d:1.1s" href="#solutions"><span class="in"><span class="roll"><span>Explore Solutions</span><span aria-hidden="true">Explore Solutions</span></span></span></a>
+      </div>
+    </div>
+
+    <div class="hero-bottom" aria-hidden="true">
+      <div class="fit" data-w="1240">
+        <div style="position:relative; height:696px">
+          <div class="prompt up">
+            <span class="prompt-edge top"><i></i></span><span class="prompt-edge bottom"><i></i></span>
+            <div class="prompt-top">
+              <span class="select"><svg><use href="#i-grid"/></svg>Business Central<svg class="caret"><use href="#i-caret"/></svg></span>
+              <span class="icon-btn"><svg><use href="#i-globe"/></svg></span>
+            </div>
+            <p class="prompt-text"><span class="typed" data-lines='["Show invoices waiting for LHDN validation","Create a purchase order for low-stock items","Summarise this month&#39;s receivables"]'></span><i class="caret-blink"></i></p>
+            <div class="prompt-bottom">
+              <span class="chip">Finance</span><span class="chip">Inventory</span><span class="chip">e-Invoicing</span>
+              <span class="send"><svg class="spark"><use href="#i-spark"/></svg>Send</span>
+            </div>
+          </div>
+
+          <div class="window hero-window up" style="--d:.8s">
+            <div class="win-side">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <div class="win-brand"><img src="assets/crt-logo-navy.png" alt=""><span>ERP</span></div>
+              <div class="win-new"><svg class="spark"><use href="#i-spark"/></svg>New report</div>
+              <ul class="win-list">
+                <li><svg><use href="#i-chat"/></svg>Weekly sales summary</li>
+                <li><svg><use href="#i-chat"/></svg>e-Invoicing status</li>
+                <li><svg><use href="#i-chat"/></svg>Stock reorder list</li>
+                <li><svg><use href="#i-chat"/></svg>Receivables ageing</li>
+                <li><svg><use href="#i-chat"/></svg>Withholding tax report</li>
+                <li><svg><use href="#i-chat"/></svg>Warehouse picking</li>
+                <li><svg><use href="#i-chat"/></svg>Month-end checklist</li>
+              </ul>
+            </div>
+            <div class="win-main"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOGOS ================= -->
+<section class="logos">
+  <p class="logos-title">Working with the platforms mid-market businesses rely on</p>
+  <div class="ticker" data-speed="30">
+    <div class="ticker-track">
+      <div class="logo-item"><img src="assets/logos/microsoft.png" alt="Microsoft" style="width:143px"></div>
+      <div class="logo-item"><img src="assets/logos/acumatica.png" alt="Acumatica" style="width:135px"></div>
+      <div class="logo-item"><img src="assets/logos/insightsoftware.png" alt="insightsoftware" style="width:150px"></div>
+      <div class="logo-item"><img src="assets/logos/exflow.png" alt="ExFlow" style="width:133px"></div>
+      <div class="logo-item"><img src="assets/logos/fornav.png" alt="ForNAV" style="width:143px"></div>
+      <div class="logo-item"><img src="assets/logos/insightworks.png" alt="Insight Works" style="width:100px"></div>
+      <div class="logo-item"><img src="assets/logos/invoicenow.png" alt="InvoiceNow" style="width:108px"></div>
+      <div class="logo-item"><img src="assets/logos/cadena.png" alt="Cadena" style="width:100px"></div>
+      <div class="logo-item"><img src="assets/logos/saasplaza.png" alt="SaaSplaza" style="width:78px"></div>
+      <div class="logo-item"><img src="assets/logos/esgpedia.png" alt="ESGpedia" style="width:141px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLUTIONS (bento) ================= -->
+<section class="section" id="solutions">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag"><span>Solutions</span></span>
+      <h2>Stay compliant, connected and quick</h2>
+      <p>The work that keeps your business compliant today and ready for whatever comes next.</p>
+    </div>
+
+    <div class="bento">
+      <div class="bento-row r1">
+        <article class="gcard rv">
+          <span class="glow-border" aria-hidden="true"></span>
+          <div class="gcard-in">
+            <div class="art" aria-hidden="true"><div class="fit" data-w="481"><div class="art-int" style="position:relative;height:304px">
+              <span class="blob b-blue" style="left:-60px;bottom:-80px;width:220px;height:180px"></span>
+              <span class="blob b-sky" style="right:-70px;top:-60px;width:240px;height:200px"></span>
+              <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+              <div class="apps">
+                <span><img src="assets/logos/marks/microsoft.svg" alt=""></span>
+                <span><img src="assets/logos/marks/acumatica.png" alt=""></span>
+                <span><img src="assets/logos/marks/insightsoftware.png" alt=""></span>
+                <span class="gap"></span>
+                <span><img src="assets/logos/marks/exflow.png" alt=""></span>
+                <span><img src="assets/logos/marks/fornav.png" alt=""></span>
+                <span><img src="assets/logos/marks/idynamics.png" alt=""></span>
+              </div>
+              <span class="orb"></span>
+            </div></div></div>
+            <div class="gcard-copy">
+              <h3>Seamless integrations</h3>
+              <p>Link Business Central to warehouse, banking and reporting tools so data moves without re-keying.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="gcard rv" style="--d:.08s">
+          <span class="glow-border" aria-hidden="true" style="animation-delay:-2s"></span>
+          <div class="gcard-in">
+            <div class="art" aria-hidden="true"><div class="fit" data-w="703"><div style="position:relative;height:304px">
+              <span class="blob b-blue" style="left:-40px;bottom:-110px;width:360px;height:200px"></span>
+              <span class="blob b-sky" style="right:-60px;bottom:-60px;width:320px;height:240px"></span>
+              <div class="bubble-row" style="right:52px;top:22px"><span class="bubble">Submit this week's sales invoices to MyInvois</span><span class="avatar"><svg><use href="#i-user"/></svg></span></div>
+              <svg class="spark-float" style="left:112px;top:98px"><use href="#i-spark"/></svg>
+              <div class="reply" style="left:164px;top:92px;width:410px">
+                <b>All set!</b>
+                <div class="record"><span>Submitted</span><em>142 invoices</em><span>Validated</span><em>139 by MyInvois</em></div>
+                <p>QR codes added to 139 invoice PDFs</p>
+              </div>
+            </div></div></div>
+            <div class="gcard-copy">
+              <h3>e-Invoicing compliance</h3>
+              <p>Submit and validate e-invoices for Malaysia's MyInvois and Singapore's InvoiceNow, straight from your ERP.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="bento-row r2">
+        <article class="gcard rv">
+          <span class="glow-border" aria-hidden="true" style="animation-delay:-4s"></span>
+          <div class="gcard-in">
+            <div class="art" aria-hidden="true"><div class="fit" data-w="790"><div style="position:relative;height:304px">
+              <span class="blob b-blue" style="left:-80px;bottom:-60px;width:380px;height:260px"></span>
+              <span class="blob b-sky" style="left:380px;top:-40px;width:340px;height:240px"></span>
+              <span class="arc" style="left:452px;top:-150px;width:560px;height:560px"></span>
+              <span class="wire" style="left:176px;top:151px;width:54px;height:1px"></span>
+              <span class="wire" style="left:286px;top:151px;width:40px;height:1px"></span>
+              <span class="wire" style="left:326px;top:63px;width:1px;height:177px"></span>
+              <span class="wire" style="left:326px;top:63px;width:44px;height:1px"></span>
+              <span class="wire" style="left:326px;top:151px;width:44px;height:1px"></span>
+              <span class="wire" style="left:326px;top:240px;width:44px;height:1px"></span>
+              <span class="node" style="left:44px;top:128px">Requisition</span>
+              <span class="hub" style="left:230px;top:123px"><svg class="spark"><use href="#i-spark"/></svg></span>
+              <span class="node" style="left:370px;top:40px"><svg><use href="#i-check"/></svg>Approval request</span>
+              <span class="node" style="left:370px;top:128px"><svg><use href="#i-mail"/></svg>Email notification</span>
+              <span class="node" style="left:370px;top:217px"><svg><use href="#i-grid"/></svg>Post to Business Central</span>
+            </div></div></div>
+            <div class="gcard-copy">
+              <h3>Workflow automation</h3>
+              <p>Approvals, reminders and routine postings run on rules, so your team handles exceptions instead of paperwork.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="gcard rv" style="--d:.08s">
+          <span class="glow-border" aria-hidden="true" style="animation-delay:-6s"></span>
+          <div class="gcard-in">
+            <div class="art" aria-hidden="true"><div class="fit" data-w="394"><div style="position:relative;height:304px">
+              <span class="blob b-sky" style="left:60px;bottom:-90px;width:280px;height:180px"></span>
+              <span class="arc" style="left:-70px;top:210px;width:534px;height:534px"></span>
+              <div class="chan" style="top:34px"><span class="ci"><svg><use href="#i-bank"/></svg></span>EFT payment file</div>
+              <div class="chan" style="top:104px"><span class="ci"><svg><use href="#i-mail"/></svg></span>Email notification</div>
+              <div class="chan" style="top:174px"><span class="ci"><svg><use href="#i-shield"/></svg></span>e-Invoice status</div>
+            </div></div></div>
+            <div class="gcard-copy">
+              <h3>Payments and notifications</h3>
+              <p>Pay suppliers straight from Business Central and keep customers updated on every e-invoice.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI AUTOMATION ================= -->
+<section class="section ai" id="ai">
+  <div class="container">
+    <h2 class="ai-title"><span class="orb" aria-hidden="true"></span><span>AI</span> <span class="grad">Automation</span></h2>
+
+    <div class="video-window window rv" id="demo">
+      <div class="vw-bar">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="vw-title">ACT AC2 Wave WMS Connector<span class="vw-sub"> · Business Central integration</span></span>
+        <span class="vw-time">2:04</span>
+      </div>
+      <div class="vw-stage" data-video="e2oCtDuzv_A" data-start="12" data-title="ACT AC2 Wave WMS Connector demo">
+        <img src="assets/img/video-poster.jpg" alt="CRT consultants working across ERP screens in the Johor Bahru office" width="1600" height="900" loading="lazy">
+        <button class="btn btn-primary vw-play" type="button" aria-label="Play the ACT AC2 Wave WMS Connector demo, 2 minutes"><span class="in"><svg class="vw-ico"><use href="#i-playfill"/></svg>Watch the demo · 2 min</span></button>
+      </div>
+    </div>
+
+    <div class="vw-cols">
+      <div class="rv"><h3><svg class="spark"><use href="#i-spark"/></svg>Real-time inventory</h3><p>Stock levels stay accurate in both systems as goods move.</p></div>
+      <div class="rv" style="--d:.08s"><h3><svg class="spark"><use href="#i-spark"/></svg>Smoother warehouse work</h3><p>Orders reach the warehouse floor without manual handoffs.</p></div>
+      <div class="rv" style="--d:.16s"><h3><svg class="spark"><use href="#i-spark"/></svg>Less re-keying</h3><p>One entry updates both systems, cutting errors and admin time.</p></div>
+    </div>
+
+    <div class="industries" id="industries">
+      <div class="ind"><span class="ind-ico"><svg><use href="#i-factory"/></svg></span><b>Manufacturing</b></div>
+      <div class="ind"><span class="ind-ico"><svg><use href="#i-truck"/></svg></span><b>Distribution</b></div>
+      <div class="ind"><span class="ind-ico"><svg><use href="#i-crane"/></svg></span><b>Construction</b></div>
+      <div class="ind"><span class="ind-ico"><svg><use href="#i-gear"/></svg></span><b>Engineering</b></div>
+      <div class="ind"><span class="ind-ico"><svg><use href="#i-flask"/></svg></span><b>Life sciences</b></div>
+      <div class="ind"><span class="ind-ico"><svg><use href="#i-building"/></svg></span><b>Property</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS (stacking cards) ================= -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag"><span>Products</span></span>
+      <h2>The platforms we build on</h2>
+      <p>Licensed, implemented and supported by one team, so you never get passed between vendors.</p>
+    </div>
+
+    <div class="stack">
+      <article class="scard">
+        <div class="scard-in">
+          <div class="scard-copy">
+            <h3>Dynamics 365 Business Central</h3>
+            <p>End-to-end ERP for finance, sales, purchasing and inventory, working alongside the Microsoft 365 tools your team already uses.</p>
+            <ul class="sparks">
+              <li><svg class="spark"><use href="#i-spark"/></svg>Finance, sales and purchasing in one system</li>
+              <li><svg class="spark"><use href="#i-spark"/></svg>Inventory and warehouse control</li>
+              <li><svg class="spark"><use href="#i-spark"/></svg>Built to work with Microsoft 365</li>
+            </ul>
+          </div>
+          <div class="scard-art" aria-hidden="true">
+            <div class="streaks"><i></i><i></i><i></i><i></i></div>
+            <div class="glass glass-field">| Actions</div>
+            <ul class="glass glass-list">
+              <li><span><svg><use href="#i-doc"/></svg></span>Post sales invoice</li>
+              <li><span><svg><use href="#i-cart"/></svg></span>Create purchase order</li>
+              <li><span><svg><use href="#i-shield"/></svg></span>Submit e-invoice</li>
+              <li><span><svg><use href="#i-bank"/></svg></span>Run bank reconciliation</li>
+              <li><span><svg><use href="#i-chart"/></svg></span>Open sales dashboard</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="scard flip">
+        <div class="scard-in">
+          <div class="scard-copy">
+            <h3>Acumatica Cloud ERP</h3>
+            <p>Cloud ERP with deep manufacturing and distribution features, available from any browser, anywhere.</p>
+            <ul class="sparks">
+              <li><svg class="spark"><use href="#i-spark"/></svg>Manufacturing and production</li>
+              <li><svg class="spark"><use href="#i-spark"/></svg>Distribution and inventory</li>
+              <li><svg class="spark"><use href="#i-spark"/></svg>Access from any browser</li>
+            </ul>
+          </div>
+          <div class="scard-art" aria-hidden="true">
+            <div class="streaks"><i></i><i></i><i></i><i></i></div>
+            <div class="glass-stack">
+              <span class="orb"></span>
+              <span class="gbtn hot">Production</span>
+              <span class="gbtn">Inventory</span>
+              <span class="gbtn">Sales orders</span>
+              <span class="gbtn">Dashboards</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="scard">
+        <div class="scard-in">
+          <div class="scard-copy">
+            <h3>ACT add-on suite</h3>
+            <p>Add-ons for what regional businesses actually need, from export sales and withholding tax to supplier payments.</p>
+            <ul class="sparks">
+              <li><svg class="spark"><use href="#i-spark"/></svg>e-Invoicing and SST/GST localisation</li>
+              <li><svg class="spark"><use href="#i-spark"/></svg>Withholding Tax and Export Sales</li>
+              <li><svg class="spark"><use href="#i-spark"/></svg>EFT supplier payments</li>
+            </ul>
+          </div>
+          <div class="scard-art" aria-hidden="true">
+            <div class="streaks"><i></i><i></i><i></i><i></i></div>
+            <div class="glass-chat">
+              <div class="row"><svg class="spark"><use href="#i-spark"/></svg><span class="glass">e-Invoice validated by MyInvois.</span></div>
+              <div class="row"><span class="avatar"><svg><use href="#i-user"/></svg></span><span class="glass">Calculate withholding tax for this bill</span></div>
+              <div class="row"><svg class="spark"><use href="#i-spark"/></svg><span class="glass">Done. The EFT file is ready for the bank.</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES (auto-rotating panels) ================= -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag"><span>Services</span></span>
+      <h2>Everything around the software</h2>
+    </div>
+
+    <div class="tabs-panel" aria-hidden="true">
+      <div class="fit" data-w="1240"><div style="position:relative;height:712px">
+
+        <div class="tab-art on">
+          <div class="canvas">
+            <div class="window c-side">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <div class="win-brand"><img src="assets/crt-logo-navy.png" alt=""><span>ERP</span></div>
+              <div class="win-new"><svg class="spark"><use href="#i-spark"/></svg>Order to cash</div>
+              <div class="c-seg"><span>Steps</span><span>Notes</span></div>
+              <div class="c-group">Sales</div>
+              <div class="c-item"><i><svg><use href="#i-doc"/></svg></i><div><b>Quote</b><span>Customer pricing checked</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-cart"/></svg></i><div><b>Sales order</b><span>Entered in two systems</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-truck"/></svg></i><div><b>Delivery</b><span>Picked in the warehouse</span></div></div>
+              <div class="c-group">Finance</div>
+              <div class="c-item"><i><svg><use href="#i-doc"/></svg></i><div><b>Invoice</b><span>Posted manually</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-shield"/></svg></i><div><b>e-Invoice</b><span>Submitted to MyInvois</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-bank"/></svg></i><div><b>Payment</b><span>Matched in the bank</span></div></div>
+            </div>
+            <div class="window c-main">
+              <div class="c-head"><div><b>Process review</b><span>Order to cash · Distribution</span></div><span class="mini-btn"><svg width="12" height="12"><use href="#i-plus"/></svg>Add note</span></div>
+              <div class="flowmap">
+                <svg class="links" viewBox="0 0 870 520" preserveAspectRatio="none">
+                  <path d="M196 60 H337"/><path d="M533 60 H674"/><path d="M772 100 V240"/><path d="M674 280 H533"/><path d="M337 280 H196"/><path d="M435 320 V420"/>
+                </svg>
+                <div class="fnode" style="left:0;top:20px"><b><svg><use href="#i-doc"/></svg>Quote</b><span>Customer pricing</span><em class="ok">Automated</em></div>
+                <div class="fnode" style="left:337px;top:20px"><b><svg><use href="#i-cart"/></svg>Sales order</b><span>Order entry</span><em class="warn">Keyed twice</em></div>
+                <div class="fnode" style="left:674px;top:20px"><b><svg><use href="#i-truck"/></svg>Delivery</b><span>Warehouse picking</span><em class="ok">Scanned</em></div>
+                <div class="fnode" style="left:674px;top:240px"><b><svg><use href="#i-doc"/></svg>Invoice</b><span>Sales invoice</span><em class="warn">Manual posting</em></div>
+                <div class="fnode" style="left:337px;top:240px"><b><svg><use href="#i-shield"/></svg>e-Invoice</b><span>MyInvois</span><em class="ok">Validated</em></div>
+                <div class="fnode" style="left:0;top:240px"><b><svg><use href="#i-bank"/></svg>Payment</b><span>Bank matching</span><em class="info">Weekly</em></div>
+                <div class="fnode" style="left:337px;top:420px"><b><svg class="spark"><use href="#i-spark"/></svg>Recommendation</b><span>Connect orders to the warehouse</span><em class="info">In the plan</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-art">
+          <div class="canvas">
+            <div class="window c-side">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <div class="win-brand"><img src="assets/crt-logo-navy.png" alt=""><span>ERP</span></div>
+              <div class="win-new"><svg class="spark"><use href="#i-spark"/></svg>Rollout plan</div>
+              <div class="c-seg"><span>Phases</span><span>Team</span></div>
+              <div class="c-group">Phases</div>
+              <div class="c-item"><i><svg><use href="#i-chat"/></svg></i><div><b>Discover and review</b><span>Complete</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-settings"/></svg></i><div><b>Configure</b><span>Complete</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-refresh"/></svg></i><div><b>Migrate data</b><span>In progress</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-cap"/></svg></i><div><b>Train key users</b><span>Scheduled</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-check"/></svg></i><div><b>Go live</b><span>Next</span></div></div>
+            </div>
+            <div class="window c-main">
+              <div class="c-head"><div><b>Rollout plan</b><span>Business Central · Implementation</span></div><span class="mini-btn"><svg width="12" height="12"><use href="#i-plus"/></svg>Add task</span></div>
+              <div class="plan-rows">
+                <div class="plan-row"><div><b>Discover and review</b><span>Processes and systems</span></div><div class="track"><i style="left:0;width:18%"></i></div><em class="ok" style="padding:2px 7px;border-radius:5px">Done</em></div>
+                <div class="plan-row"><div><b>Configure</b><span>Finance, sales, purchasing</span></div><div class="track"><i style="left:14%;width:26%"></i></div><em class="ok" style="padding:2px 7px;border-radius:5px">Done</em></div>
+                <div class="plan-row"><div><b>Migrate data</b><span>Customers, items, balances</span></div><div class="track"><i style="left:34%;width:28%"></i></div><em class="info" style="padding:2px 7px;border-radius:5px">80%</em></div>
+                <div class="plan-row"><div><b>Customize</b><span>Reports and approvals</span></div><div class="track"><i style="left:44%;width:24%"></i></div><em class="info" style="padding:2px 7px;border-radius:5px">60%</em></div>
+                <div class="plan-row"><div><b>Train key users</b><span>HRDF-approved sessions</span></div><div class="track"><i style="left:58%;width:24%"></i></div><em class="warn" style="padding:2px 7px;border-radius:5px">Booked</em></div>
+                <div class="plan-row"><div><b>Go live</b><span>Hands-on support</span></div><div class="track"><i style="left:82%;width:18%"></i></div><em style="color:var(--ink-45)">Next</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-art">
+          <div class="canvas">
+            <div class="window c-side">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <div class="win-brand"><img src="assets/crt-logo-navy.png" alt=""><span>ERP</span></div>
+              <div class="win-new"><svg class="spark"><use href="#i-spark"/></svg>New request</div>
+              <div class="c-seg"><span>Helpdesk</span><span>Training</span></div>
+              <div class="c-group">Queues</div>
+              <div class="c-item"><i><svg><use href="#i-headset"/></svg></i><div><b>Helpdesk</b><span>3 open requests</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-cap"/></svg></i><div><b>User training</b><span>2 sessions booked</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-refresh"/></svg></i><div><b>Upgrades</b><span>1 planned</span></div></div>
+              <div class="c-group">Contact</div>
+              <div class="c-item"><i><svg><use href="#i-phone"/></svg></i><div><b>1700 818 976</b><span>Toll-free, Malaysia</span></div></div>
+              <div class="c-item"><i><svg><use href="#i-mail"/></svg></i><div><b>support@crt-insights.com</b><span>Email support</span></div></div>
+            </div>
+            <div class="window c-main">
+              <div class="c-head"><div><b>Helpdesk</b><span>Support for your ERP users</span></div><span class="mini-btn"><svg width="12" height="12"><use href="#i-plus"/></svg>New request</span></div>
+              <div class="tickets">
+                <div class="ticket-row"><code>HD-2481</code><b>Credit note won't post</b><span>Finance</span><em class="ok">Resolved</em></div>
+                <div class="ticket-row"><code>HD-2479</code><b>Add a new SST tax code</b><span>Accounts</span><em class="info">In progress</em></div>
+                <div class="ticket-row"><code>HD-2474</code><b>Plan the move to the latest release</b><span>IT</span><em class="warn">Scheduled</em></div>
+                <div class="ticket-row"><code>TR-118</code><b>Key user training: purchasing</b><span>Procurement</span><em class="info">Booked</em></div>
+                <div class="ticket-row"><code>TR-117</code><b>Year-end closing refresher</b><span>Finance</span><em class="ok">Done</em></div>
+                <div class="ticket-row"><code>HD-2466</code><b>Invoice layout for e-invoice QR code</b><span>Admin</span><em class="ok">Resolved</em></div>
+                <div class="ticket-row"><code>HD-2461</code><b>Warehouse stock not matching</b><span>Operations</span><em class="ok">Resolved</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="tab-bars" role="tablist" aria-label="Services">
+      <button class="on" type="button" role="tab" aria-selected="true" aria-label="Consult and plan"><i></i></button>
+      <button type="button" role="tab" aria-selected="false" aria-label="Implement and upgrade"><i></i></button>
+      <button type="button" role="tab" aria-selected="false" aria-label="Train and support"><i></i></button>
+    </div>
+    <div class="tab-cols">
+      <button class="tab-col on" type="button"><b>Consult and plan:</b> Not sure what needs fixing? We review your processes and systems, then hand you a clear game plan.</button>
+      <button class="tab-col" type="button"><b>Implement and upgrade:</b> Our Live in 5 framework moves you onto a better platform, and we bring older versions up to date.</button>
+      <button class="tab-col" type="button"><b>Train and support:</b> HRDF-approved training for your users, then helpdesk support that stays with you after go-live.</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INTEGRATIONS ================= -->
+<section class="section integ" id="integrations">
+  <div class="container">
+    <div class="integ-orb" aria-hidden="true"><span class="orb"></span></div>
+    <div class="sec-head">
+      <span class="tag"><span>Integrations</span></span>
+      <h2>Connected to the rest of your business</h2>
+    </div>
+    <div class="icon-rows" aria-hidden="true">
+      <div class="ticker reverse" data-speed="50">
+        <div class="ticker-track">
+          <span class="icon-tile"><img src="assets/logos/marks/microsoft.svg" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-warehouse"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/acumatica.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-bank"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/insightsoftware.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-shield"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/exflow.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-mail"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/fornav.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-chart"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/idynamics.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-cloud"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/agiles.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-users"/></svg></span>
+        </div>
+      </div>
+      <div class="ticker" data-speed="50">
+        <div class="ticker-track">
+          <span class="icon-tile"><svg><use href="#i-doc"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/fornav.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-cart"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/agiles.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-box"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/microsoft.svg" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-send"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/exflow.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-truck"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/insightsoftware.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-phone"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/acumatica.png" alt=""></span>
+          <span class="icon-tile"><svg><use href="#i-globe"/></svg></span>
+          <span class="icon-tile"><img src="assets/logos/marks/idynamics.png" alt=""></span>
+        </div>
+      </div>
+    </div>
+    <div class="integ-cta"><a class="btn btn-ghost" href="#products"><span class="in"><span class="roll"><span>Explore the add-ons</span><span aria-hidden="true">Explore the add-ons</span></span></span></a></div>
+  </div>
+</section>
+
+<!-- ================= CUSTOMERS & EVENTS ================= -->
+<section class="section stories" id="events">
+  <div class="container">
+    <div class="sec-head left">
+      <span class="tag"><span>Customers and events</span></span>
+      <h2>Customer stories and the moments we've shared</h2>
+      <a class="text-link" href="https://www.youtube.com/@CRTInsights/videos" target="_blank" rel="noopener">Watch our webinars and product demos on YouTube <svg><use href="#i-chev"/></svg></a>
+    </div>
+  </div>
+  <div class="stories-beam" aria-hidden="true"></div>
+  <div class="container">
+    <div class="ticker story-ticker" data-speed="50">
+      <div class="ticker-track">
+        <article class="story">
+          <div class="story-logo"><i>S</i>Sunlun Corporation</div>
+          <p>&ldquo;We are glad that we have chosen CRT as our implementation partner and foresee many more years of partnership with CRT.&rdquo;</p>
+          <div class="story-by"><span class="avatar">PM</span><div><b>Project Manager</b><span>Sunlun Corporation</span></div></div>
+        </article>
+        <article class="story">
+          <div class="story-logo"><i>Y</i>Yick Hoe Group</div>
+          <p>&ldquo;Celebrating valued customers for their lasting trust, commitment and support.&rdquo;</p>
+          <div class="story-by"><span class="avatar"><svg><use href="#i-award"/></svg></span><div><b>Pioneer Customer Award</b><span>20 Years of Excellence, 2026</span></div></div>
+        </article>
+        <article class="story">
+          <div class="story-logo"><i><svg><use href="#i-mic"/></svg></i>SCLS Malaysia 2025</div>
+          <p>CRT joined Acumatica as a Silver Sponsor at SCLS Malaysia 2025 in Kuala Lumpur.</p>
+          <div class="story-by"><span class="avatar"><svg><use href="#i-users"/></svg></span><div><b>Industry summit</b><span>October 2025</span></div></div>
+        </article>
+        <article class="story">
+          <div class="story-logo"><i>GT</i>Grant Thornton</div>
+          <p>A Lunch and Learn session co-hosted with Grant Thornton.</p>
+          <div class="story-by"><span class="avatar"><svg><use href="#i-users"/></svg></span><div><b>Partner session</b><span>Lunch and Learn</span></div></div>
+        </article>
+        <article class="story">
+          <div class="story-logo"><i><svg><use href="#i-play"/></svg></i>Peppol webinar</div>
+          <p>Adopting Peppol Invoicing in Malaysia: benefits, compliance requirements and practical steps.</p>
+          <div class="story-by"><span class="avatar"><svg><use href="#i-play"/></svg></span><div><b>Webinar replay</b><span>August 2025</span></div></div>
+        </article>
+        <article class="story">
+          <div class="story-logo"><i><svg><use href="#i-play"/></svg></i>ACT EFT webinar</div>
+          <p>Seamless Payments Start Here: paying suppliers straight from Business Central.</p>
+          <div class="story-by"><span class="avatar"><svg><use href="#i-play"/></svg></span><div><b>Webinar replay</b><span>January 2026</span></div></div>
+        </article>
+      </div>
+    </div>
+    <div class="story-dots" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ================= WAYS TO START ================= -->
+<section class="section" id="start">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag"><span>Ways to start</span></span>
+      <h2>Get started in three simple steps</h2>
+    </div>
+    <div class="steps">
+      <article class="step rv">
+        <div class="step-art" aria-hidden="true">
+          <div class="trig" style="top:84px">
+            <span class="node"><i><svg><use href="#i-bolt"/></svg></i>When you're ready</span>
+            <div class="trig-wire"></div>
+            <span class="node"><i><svg><use href="#i-phone"/></svg></i>Book a strategy call</span>
+          </div>
+        </div>
+        <div class="step-copy">
+          <h3>1. Book a free strategy call</h3>
+          <p>New to ERP? Start with a free one-hour strategy assessment call.</p>
+        </div>
+      </article>
+      <article class="step rv" style="--d:.08s">
+        <div class="step-art" aria-hidden="true">
+          <div style="position:absolute;left:0;right:0;top:78px">
+            <div class="ticker mini-ticker reverse" data-speed="25">
+              <div class="ticker-track">
+                <span class="icon-tile"><img src="assets/logos/marks/microsoft.svg" alt=""></span>
+                <span class="icon-tile"><img src="assets/logos/marks/acumatica.png" alt=""></span>
+                <span class="icon-tile"><img src="assets/logos/marks/insightsoftware.png" alt=""></span>
+                <span class="icon-tile"><img src="assets/logos/marks/exflow.png" alt=""></span>
+              </div>
+            </div>
+            <div class="ticker mini-ticker" data-speed="50">
+              <div class="ticker-track">
+                <span class="icon-tile"><img src="assets/logos/marks/fornav.png" alt=""></span>
+                <span class="icon-tile"><img src="assets/logos/marks/idynamics.png" alt=""></span>
+                <span class="icon-tile"><img src="assets/logos/marks/agiles.png" alt=""></span>
+                <span class="icon-tile"><svg><use href="#i-warehouse"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-copy">
+          <h3>2. Choose your platform</h3>
+          <p>Business Central or Acumatica, plus the add-ons your business needs.</p>
+        </div>
+      </article>
+      <article class="step rv" style="--d:.16s">
+        <div class="step-art" aria-hidden="true">
+          <div class="check-tile"><span><svg><use href="#i-check"/></svg></span></div>
+        </div>
+        <div class="step-copy">
+          <h3>3. Go live with support</h3>
+          <p>We implement, train your team and stay on with helpdesk support.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section faq" id="faq">
+  <div class="container faq-grid">
+    <div class="faq-left">
+      <span class="tag"><span>FAQ</span></span>
+      <h2>Frequently asked questions</h2>
+      <b>Got any questions?</b>
+      <p>Email sales@crt-insights.com or call <span style="white-space:nowrap">+6 07 3 648 648</span> and our team will help.</p>
+      <a class="btn btn-ghost" href="mailto:sales@crt-insights.com"><span class="in"><span class="roll"><span>Contact us</span><span aria-hidden="true">Contact us</span></span></span></a>
+    </div>
+    <div class="faq-list">
+      <div class="qa">
+        <button type="button" aria-expanded="false">Do you support systems implemented by another partner?<span class="pm" aria-hidden="true"></span></button>
+        <div class="ans"><p>Yes. Whether you are an existing client or your system was set up by another partner, our helpdesk supports ERP users. Email support@crt-insights.com with what you need.</p></div>
+      </div>
+      <div class="qa open">
+        <button type="button" aria-expanded="true">Is the first consultation chargeable?<span class="pm" aria-hidden="true"></span></button>
+        <div class="ans"><p>No. Friendly advice is always a free phone call away, and new customers adopting an ERP system can book a free one-hour strategy assessment call.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">Are your solutions eligible for grants or subsidies?<span class="pm" aria-hidden="true"></span></button>
+        <div class="ans"><p>Most of our solutions are eligible for support from local government and regulatory bodies. Tell us what you are considering at sales@crt-insights.com and we will confirm what applies.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">What if the software I need isn't listed?<span class="pm" aria-hidden="true"></span></button>
+        <div class="ans"><p>If we don't have it, we will find a way. We work with a wide network of partners on integrated solutions, so drop us a note at sales@crt-insights.com and we will look into it.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">What's the best way to contact you?<span class="pm" aria-hidden="true"></span></button>
+        <div class="ans"><p>Email sales@crt-insights.com for new enquiries or support@crt-insights.com for help. Call +6 07 3 648 648 in Malaysia or +65 6379 9321 in Singapore, use the toll-free support line 1700 818 976 (Malaysia only), or WhatsApp us at +60 12-760 8648.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button" aria-expanded="false">How do I book a solution demo?<span class="pm" aria-hidden="true"></span></button>
+        <div class="ans"><p>Email sales@crt-insights.com with the solutions you would like to see, or ask us to suggest the right ones for your business.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FINAL CTA + FOOTER ================= -->
+<div class="end">
+  <div class="end-bg" aria-hidden="true"><i class="c1"></i><i class="c2"></i></div>
+
+  <section class="cta" id="final">
+    <div class="container cta-in">
+      <span class="orb" aria-hidden="true"></span>
+      <h2 class="reveal" data-split="words">Let's do this, together</h2>
+      <p class="rv">Whether you have a definite plan or a rough idea, tell us where you are and we will work out the rest with you.</p>
+      <div class="hero-cta rv" style="--d:.1s">
+        <a class="btn btn-primary" href="mailto:sales@crt-insights.com?subject=Solution%20demo%20request"><span class="in"><span class="roll"><span>Book a Demo</span><span aria-hidden="true">Book a Demo</span></span></span></a>
+        <a class="btn btn-ghost" href="https://wa.me/60127608648" target="_blank" rel="noopener"><span class="in"><span class="roll"><span>WhatsApp us</span><span aria-hidden="true">WhatsApp us</span></span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container">
+      <div class="foot-card">
+        <div class="foot-main">
+          <div class="foot-brand">
+            <img src="assets/crt-logo-white.png" alt="CRT Insights Technologies" width="1102" height="407">
+            <p>Business technology experts for mid-market companies across Malaysia and Singapore, since 2006.</p>
+          </div>
+          <div class="foot-cols">
+            <div class="foot-col">
+              <h4>Explore</h4>
+              <a href="#solutions">Solutions</a>
+              <a href="#products">Products</a>
+              <a href="#services">Services</a>
+              <a href="#industries">Industries</a>
+              <a href="#events">Events</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <div class="foot-col">
+              <h4>Contact</h4>
+              <a href="mailto:sales@crt-insights.com">sales@crt-insights.com</a>
+              <a href="mailto:support@crt-insights.com">support@crt-insights.com</a>
+              <a href="tel:+6073648648">+6 07 3 648 648 (MY)</a>
+              <a href="tel:+6563799321">+65 6379 9321 (SG)</a>
+              <a href="https://wa.me/60127608648" target="_blank" rel="noopener">WhatsApp +60 12-760 8648</a>
+            </div>
+            <div class="foot-col">
+              <h4>Offices</h4>
+              <p><b>Johor Bahru (HQ)</b>No 20-01, Jalan Setia Eco Cascadia 6/2</p>
+              <p><b>Kuala Lumpur</b>37-10, The Boulevard, Mid Valley City</p>
+              <p><b>Singapore</b>1 Coleman Street, #05-13A, The Adelphi</p>
+            </div>
+          </div>
+        </div>
+        <div class="foot-bot">
+          <span>© 2026 CRT Insights Technologies · Care | Respect | Trust</span>
+          <div class="socials">
+            <a href="https://www.linkedin.com/company/crtinsights/" target="_blank" rel="noopener" aria-label="CRT on LinkedIn"><svg><use href="#i-in"/></svg></a>
+            <a href="https://www.facebook.com/CRTInsights" target="_blank" rel="noopener" aria-label="CRT on Facebook"><svg><use href="#i-fb"/></svg></a>
+            <a href="https://www.youtube.com/@CRTInsights" target="_blank" rel="noopener" aria-label="CRT on YouTube"><svg><use href="#i-yt"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
