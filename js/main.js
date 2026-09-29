@@ -58,30 +58,39 @@ Promise.race([fontsReady, new Promise(r => setTimeout(r, 900))]).then(()=>{
 });
 
 /* ---------------------------------------------------------- *
- * 3. Rotating keyword in the headline
+ * 3. Headline keyword, typed out one letter at a time
  * ---------------------------------------------------------- */
-const rotator = $(".rotator");
-if(rotator){
-  const words = $$(".rot-word", rotator);
-  const fitWord = ()=>{
-    const on = $(".rot-word.is-on", rotator) || words[0];
-    if(on) rotator.style.width = Math.ceil(on.getBoundingClientRect().width) + "px";
-  };
-  fitWord();
-  fontsReady.then(fitWord);
-  addEventListener("resize", fitWord);
-  if(!reduced && words.length > 1){
-    let i = 0;
-    setInterval(()=>{
-      const cur = words[i];
-      i = (i + 1) % words.length;
-      const next = words[i];
-      cur.classList.replace("is-on", "is-out");
-      next.classList.remove("is-out");
-      next.classList.add("is-on");
-      fitWord();
-      setTimeout(()=> cur.classList.remove("is-out"), 700);
-    }, 2600);
+const tw = $(".tw");
+if(tw){
+  const word  = $(".tw-word", tw);
+  const caret = $(".tw-caret", tw);
+  const WORDS = ["e-Invoicing", "ERP", "WMS", "ESG"];
+  const wait  = ms => new Promise(r => setTimeout(r, ms));
+  if(reduced){
+    word.textContent = WORDS[0];
+  }else{
+    caret.classList.add("blink");
+    (async ()=>{
+      await wait(1900);
+      let i = 0;
+      for(;;){
+        const from = WORDS[i];
+        i = (i + 1) % WORDS.length;
+        const to = WORDS[i];
+        caret.classList.remove("blink");
+        for(let n = from.length; n >= 0; n--){       // rub the old word out
+          word.textContent = from.slice(0, n);
+          await wait(38);
+        }
+        await wait(260);
+        for(let n = 1; n <= to.length; n++){         // type the new one
+          word.textContent = to.slice(0, n);
+          await wait(72 + Math.random() * 60);
+        }
+        caret.classList.add("blink");
+        await wait(2200);
+      }
+    })();
   }
 }
 
@@ -277,7 +286,24 @@ function measureStack(){
     return t;
   });
 }
+/* "How we work": the media panel follows the step you are reading */
+const hwSteps  = $$(".hw-step");
+const hwSlides = $$(".hw-slide");
+const hwNodes  = $$(".hw-node");
+const hwFill   = $(".hw-fill");
+function updateHow(){
+  if(hwSteps.length < 2) return;
+  const mid = innerHeight * .52;
+  let active = 0;
+  hwSteps.forEach((st, i)=>{ if(st.getBoundingClientRect().top < mid) active = i; });
+  hwSteps.forEach((st, i)=> st.classList.toggle("dim", i !== active));
+  hwSlides.forEach((sl, i)=> sl.classList.toggle("on", i === active));
+  hwNodes.forEach((n, i)=> n.classList.toggle("on", i <= active));
+  if(hwFill) hwFill.style.width = (active / (hwSteps.length - 1) * 100) + "%";
+}
+
 function onScroll(){
+  updateHow();
   if(grad && !reduced){
     const vh = innerHeight;
     const r = title.getBoundingClientRect();
@@ -287,16 +313,19 @@ function onScroll(){
     grad.style.transform = "translate3d(0," + ((1 - p) * dist).toFixed(1) + "px,0)";
   }
   if(cards.length && !reduced){
-    const on = innerWidth >= 1200;
+    // how far back a card falls: gentler on small screens
+    const amt = innerWidth < 810 ? .2 : innerWidth < 1200 ? .3 : .4;
     cards.forEach((c, i)=>{
-      if(!on || i === cards.length - 1){ c.style.transform = ""; return; }
-      const p = clamp((scrollY - (cardTops[i] - 25)) / 770);
+      if(i === cards.length - 1){ c.style.transform = ""; return; }
+      const span = (cardTops[i + 1] - cardTops[i]) || 770;
+      const p = clamp((scrollY - (cardTops[i] - 25)) / span);
       const e = -(Math.cos(Math.PI * p) - 1) / 2;
-      c.style.transform = p > 0 ? "perspective(1200px) scale(" + (1 - .4 * e).toFixed(4) + ")" : "";
+      c.style.transform = p > 0 ? "perspective(1200px) scale(" + (1 - amt * e).toFixed(4) + ")" : "";
     });
   }
 }
 measureStack();
+updateHow();
 if(lenis) lenis.on("scroll", onScroll);
 else addEventListener("scroll", onScroll, { passive:true });
 addEventListener("resize", ()=>{ measureStack(); onScroll(); });
@@ -403,18 +432,44 @@ const nav = $("#nav");
 const burger = $(".burger");
 const panel = $("#nav-panel");
 let navOpen = false;
+const mRows = $$(".mrow[aria-expanded]", panel || document);
+const closeSubs = ()=> mRows.forEach(r=>{
+  r.setAttribute("aria-expanded", "false");
+  r.nextElementSibling.style.height = "0px";
+});
 const setNav = (open)=>{
   if(navOpen === open) return;
   navOpen = open;
   nav.classList.toggle("open", open);
   burger.setAttribute("aria-expanded", String(open));
   burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  panel.style.height = open ? panel.scrollHeight + "px" : "0px";
+  document.body.style.overflow = open ? "hidden" : "";
+  if(lenis) open ? lenis.stop() : lenis.start();
+  if(!open) setTimeout(closeSubs, 320);
 };
 if(burger && panel){
   burger.addEventListener("click", ()=> setNav(!navOpen));
   addEventListener("keydown", e=>{ if(e.key === "Escape" && navOpen){ setNav(false); burger.focus(); } });
   matchMedia("(min-width: 1200px)").addEventListener("change", ev=>{ if(ev.matches) setNav(false); });
+  panel.addEventListener("click", e=>{ if(e.target.closest("a")) setNav(false); });
+
+  // rows stagger in when the sheet opens
+  mRows.concat($$(".mrow.mlink", panel)).forEach((r, i)=> r.style.setProperty("--md", (.06 + i * .04).toFixed(2) + "s"));
+
+  // one section open at a time, like an accordion
+  mRows.forEach(row=>{
+    const sub = row.nextElementSibling;
+    row.addEventListener("click", ()=>{
+      const open = row.getAttribute("aria-expanded") !== "true";
+      mRows.forEach(other=>{
+        if(other === row) return;
+        other.setAttribute("aria-expanded", "false");
+        other.nextElementSibling.style.height = "0px";
+      });
+      row.setAttribute("aria-expanded", String(open));
+      sub.style.height = open ? sub.firstElementChild.offsetHeight + "px" : "0px";
+    });
+  });
 }
 
 /* ---------------------------------------------------------- *

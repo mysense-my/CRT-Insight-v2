@@ -120,13 +120,63 @@
     </div>
     <div class="nav-panel" id="nav-panel">
       <div class="nav-panel-in">
-        <a href="#solutions">Solutions</a>
-        <a href="#products">Products</a>
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
-        <a href="#events">Events</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-primary" href="#contact"><span class="in">Book a Consultation</span></a>
+        <nav class="mnav" aria-label="Menu">
+        <div class="mgroup">
+          <button class="mrow" type="button" aria-expanded="false">Solutions<svg class="mchev" aria-hidden="true"><use href="#i-caret"/></svg></button>
+          <div class="msub">
+            <div class="msub-in">
+              <a href="#solutions">Seamless integrations</a>
+              <a href="#solutions">e-Invoicing compliance</a>
+              <a href="#solutions">Workflow automation</a>
+              <a href="#solutions">Payments and notifications</a>
+            </div>
+          </div>
+        </div>
+        <div class="mgroup">
+          <button class="mrow" type="button" aria-expanded="false">Products<svg class="mchev" aria-hidden="true"><use href="#i-caret"/></svg></button>
+          <div class="msub">
+            <div class="msub-in">
+              <a href="#products">Dynamics 365 Business Central</a>
+              <a href="#products">Acumatica Cloud ERP</a>
+              <a href="#products">ACT add-on suite</a>
+              <a href="#integrations">Integrations</a>
+            </div>
+          </div>
+        </div>
+        <div class="mgroup">
+          <button class="mrow" type="button" aria-expanded="false">Services<svg class="mchev" aria-hidden="true"><use href="#i-caret"/></svg></button>
+          <div class="msub">
+            <div class="msub-in">
+              <a href="#services">Consult and plan</a>
+              <a href="#services">Implement and upgrade</a>
+              <a href="#services">Train and support</a>
+              <a href="#process">How we work</a>
+            </div>
+          </div>
+        </div>
+        <div class="mgroup">
+          <button class="mrow" type="button" aria-expanded="false">Industries<svg class="mchev" aria-hidden="true"><use href="#i-caret"/></svg></button>
+          <div class="msub">
+            <div class="msub-in">
+              <a href="#industries">Manufacturing</a>
+              <a href="#industries">Distribution</a>
+              <a href="#industries">Construction &amp; Development</a>
+              <a href="#industries">Engineering</a>
+              <a href="#industries">Life Sciences</a>
+              <a href="#industries">Property Management</a>
+            </div>
+          </div>
+        </div>
+          <a class="mrow mlink" href="#events">Events</a>
+          <a class="mrow mlink" href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-foot">
+          <a class="btn btn-primary" href="#contact"><span class="in">Book a Consultation</span></a>
+          <div class="nav-foot-links">
+            <a href="mailto:sales@crt-insights.com"><svg><use href="#i-mail"/></svg>sales@crt-insights.com</a>
+            <a href="https://wa.me/60127608648" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>WhatsApp +60 12-760 8648</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -143,14 +193,9 @@
   <div class="container">
     <div class="hero-copy">
       <span class="tag"><span>In Malaysia and Singapore since 2006</span></span>
-      <h1 class="hero-h1" aria-label="e-Invoicing, ERP, WMS and ESG, implemented and supported in Malaysia and Singapore">
-        <span class="rotator up" aria-hidden="true">
-          <span class="rot-word is-on">e-Invoicing</span>
-          <span class="rot-word">ERP</span>
-          <span class="rot-word">WMS</span>
-          <span class="rot-word">ESG</span>
-        </span><span class="h1-comma up" aria-hidden="true">,</span>
-        <span class="h1-tail reveal" data-split="words" aria-hidden="true">implemented and supported in Malaysia and Singapore</span>
+      <h1 class="hero-h1" aria-label="We do e-Invoicing, ERP, WMS and ESG best in Malaysia and Singapore">
+        <span class="h1-line up" aria-hidden="true">We do <span class="tw"><span class="tw-word">e-Invoicing</span><i class="tw-caret"></i></span></span>
+        <span class="h1-line h1-tail reveal" data-split="words" aria-hidden="true">best in Malaysia and Singapore</span>
       </h1>
       <p class="hero-desc reveal" data-split="chars">CRT helps mid-market businesses plan, implement and support the systems they run on, from one team in Johor Bahru, Kuala Lumpur and Singapore.</p>
       <div class="hero-cta">
@@ -240,7 +285,7 @@
       <p>The work that keeps your business compliant today and ready for whatever comes next.</p>
     </div>
 
-    <div class="bento" data-lenis-prevent>
+    <div class="bento" data-lenis-prevent-touch>
       <div class="bento-row r1">
         <article class="gcard rv">
           <span class="glow-border" aria-hidden="true"></span>
@@ -377,7 +422,7 @@
       </div>
     </div>
 
-    <div class="rail" data-lenis-prevent>
+    <div class="rail" data-lenis-prevent-touch>
       <div class="rail-track">
         <a class="icard" href="#contact">
           <img src="assets/img/ind-manufacturing.jpg" alt="A production worker in a hard hat and high-visibility vest on a factory floor" width="900" height="900" loading="lazy">
@@ -530,7 +575,7 @@
       <h2>Everything around the software</h2>
     </div>
 
-    <div class="tabs-panel" aria-hidden="true" data-lenis-prevent>
+    <div class="tabs-panel" aria-hidden="true" data-lenis-prevent-touch>
       <div class="fit" data-w="1240" data-minw="820"><div style="position:relative;height:712px">
 
         <div class="tab-art on">
@@ -749,28 +794,52 @@
       <p>The whole process, at a glance.</p>
     </div>
 
-    <div class="flow" data-lenis-prevent>
-      <div class="flow-track">
-        <article class="flow-step rv">
-          <div class="flow-img"><img src="assets/img/how-analysis.jpg" alt="Hands around a meeting table covered with printed charts and laptops" width="720" height="405" loading="lazy"></div>
-          <h3>1. Analysis and review</h3>
-          <p>We look into your current processes, workflow and challenges, and help you figure out what works and what can be done better.</p>
-        </article>
-        <article class="flow-step rv" style="--d:.1s">
-          <div class="flow-img"><img src="assets/img/how-strategy.jpg" alt="A planning session with sticky notes grouped on a whiteboard" width="720" height="405" loading="lazy"></div>
-          <h3>2. Strategy and planning</h3>
-          <p>We map out your needs, chart the course for your transformation and pick the best tools to reach your end goals.</p>
-        </article>
-        <article class="flow-step rv" style="--d:.2s">
-          <div class="flow-img"><img src="assets/img/how-implement.jpg" alt="Three colleagues working side by side on laptops" width="720" height="405" loading="lazy"></div>
-          <h3>3. Implement and train</h3>
-          <p>We execute and deliver according to plan, and bring your key users up to speed so you hit the ground running.</p>
-        </article>
-        <article class="flow-step rv" style="--d:.3s">
-          <div class="flow-img"><img src="assets/img/how-support.jpg" alt="Someone taking a video call at a desk with a laptop" width="720" height="405" loading="lazy"></div>
-          <h3>4. Support and beyond</h3>
-          <p>We stay with you after your systems go live, guiding your team, supporting your changing needs and growing with you.</p>
-        </article>
+    <div class="hw-rail" aria-hidden="true">
+      <div class="hw-line"><i class="hw-fill"></i></div>
+      <div class="hw-nodes">
+        <span class="hw-node on"><i></i>Analysis and review</span>
+        <span class="hw-node"><i></i>Strategy and planning</span>
+        <span class="hw-node"><i></i>Implement and train</span>
+        <span class="hw-node"><i></i>Support and beyond</span>
+      </div>
+    </div>
+
+    <div class="hw-grid">
+      <div class="hw-media" aria-hidden="true">
+          <figure class="hw-slide on">
+            <img src="assets/img/how-analysis.jpg" alt="Hands around a meeting table covered with printed charts and laptops" width="720" height="405" loading="lazy">
+            <figcaption class="hw-cap">We map what is really happening</figcaption>
+          </figure>
+          <figure class="hw-slide">
+            <img src="assets/img/how-strategy.jpg" alt="A planning session with sticky notes grouped on a whiteboard" width="720" height="405" loading="lazy">
+            <figcaption class="hw-cap">A clear course, the right tools</figcaption>
+          </figure>
+          <figure class="hw-slide">
+            <img src="assets/img/how-implement.jpg" alt="Three colleagues working side by side on laptops" width="720" height="405" loading="lazy">
+            <figcaption class="hw-cap">Delivered to plan, users ready</figcaption>
+          </figure>
+          <figure class="hw-slide">
+            <img src="assets/img/how-support.jpg" alt="Someone taking a video call at a desk with a laptop" width="720" height="405" loading="lazy">
+            <figcaption class="hw-cap">Here for you after go-live</figcaption>
+          </figure>
+      </div>
+      <div class="hw-steps">
+          <article class="hw-step">
+            <h3>1. Analysis and review</h3>
+            <p>We look into your current processes, workflow and challenges, and help you figure out what works and what can be done better.</p>
+          </article>
+          <article class="hw-step dim">
+            <h3>2. Strategy and planning</h3>
+            <p>We map out your needs, chart the course for your transformation and pick the best tools to reach your end goals.</p>
+          </article>
+          <article class="hw-step dim">
+            <h3>3. Implement and train</h3>
+            <p>We execute and deliver according to plan, and bring your key users up to speed so you hit the ground running.</p>
+          </article>
+          <article class="hw-step dim">
+            <h3>4. Support and beyond</h3>
+            <p>We stay with you after your systems go live, guiding your team, supporting your changing needs and growing with you.</p>
+          </article>
       </div>
     </div>
   </div>

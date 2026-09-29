@@ -89,3 +89,55 @@ became one swipeable row instead of four stacked ones.
    generic capability statements. Site 3 only had the names. CRT should confirm the wording.
 7. **Button destinations.** Still a one-page mockup, so everything jumps within the page. That
    resolves itself when the inner pages exist.
+
+
+---
+
+# Round 2 — 29 Sep 2026
+
+**Scroll jank at Solutions — found and fixed.** The horizontal scrollers (Solutions, Industries,
+Services window, process strip) carried `data-lenis-prevent`, which tells the smooth-scroll library
+to ignore the mouse wheel over that element. Wheeling over the Solutions section fell back to the
+browser's own scrolling while Lenis was still animating, and the two fought each other — that was
+the snapping and breaking. They now carry `data-lenis-prevent-touch` instead: the wheel stays with
+Lenis, and only touch swipes are left to the browser so the rails still pan sideways on a phone.
+
+**Headline rewritten and typed out.** It now reads "We do **ERP** best in Malaysia and Singapore",
+and the keyword is rubbed out letter by letter and retyped — e-Invoicing → ERP → WMS → ESG — with a
+blinking caret. `js/main.js` block 3.
+
+**Hero scales with the screen.** The page container grows from 1240px to 1400px on wide monitors
+(the nav follows it), the headline is `clamp(40px, 4.5vw, 66px)`, and the right-hand column is
+`clamp(430px, 46%, 700px)` so the panel gets bigger on a large display instead of staying fixed.
+Inside the stage, one variable `--pt` drives the app window height, the prompt position and the
+stage height together, so the whole thing scales as one piece.
+
+**Hero height.** `min-height: min(100dvh, 1000px)` with the content vertically centred, and a
+bottom padding of `clamp(48px, 7vh, 88px)`. The answer bubble now clears the bottom edge by 56–119px
+at every width tested.
+
+**"AI Automation" on a phone** is one line again and the blue sphere is hidden there.
+
+**Products stack on phones and tablets now.** The cards were only sticky above 1200px; the stacking
+scale-back runs at every width, gentler on small screens (20% instead of 40%), and the scroll
+distance is measured per card instead of a fixed 770px.
+
+**"How we work" rebuilt with Site 1's scroll effect.** A horizontal stepper across the top keeps all
+four stages visible at once — that was the client's "one glance" ask — and below it the media panel
+sticks while you read, cross-fading between the four photos as each stage becomes active; inactive
+stages dim. On a phone the same thing happens with the media pinned to the top of the screen and the
+stages scrolling underneath it, so the effect is identical rather than dropped (Site 1 hides the
+image on mobile). Captions sit under the photo, never on it.
+
+**Mobile menu redesigned.** Opening the burger now fills the screen edge to edge: CRT logo and a
+close X in the header, Solutions / Products / Services / Industries as accordion rows that open one
+at a time, Events and FAQ as plain rows, and a full-width "Book a Consultation" with the email and
+WhatsApp links pinned to the bottom. Page scrolling locks while it is open.
+
+**Length.** Laptop 12,433px, phone 13,249px. Phone is still below where it started (13,917px);
+the laptop figure is a little above its 12,024px starting point because the rebuilt "How we work"
+costs about 490px and the hero now fills the viewport on purpose. If the client still finds it long,
+the next candidates are the Products stack (2,055px) and the Solutions bento (1,403px).
+
+Checked at 320, 390, 768, 1024, 1280, 1440 and 1920px: no sideways scrolling, no console errors, no
+dead anchor links.
