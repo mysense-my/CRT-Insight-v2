@@ -58,29 +58,122 @@ Promise.race([fontsReady, new Promise(r => setTimeout(r, 900))]).then(()=>{
 });
 
 /* ---------------------------------------------------------- *
- * 3. Typewriter in the prompt panel
+ * 3. Rotating keyword in the headline
  * ---------------------------------------------------------- */
-const typed = $(".typed");
-if(typed){
-  const lines = JSON.parse(typed.dataset.lines);
-  let li = 0, ci = 0, dir = 1;
-  const tick = ()=>{
-    const line = lines[li];
-    if(dir > 0){
-      typed.textContent = line.slice(0, ++ci);
-      if(ci >= line.length){ dir = -1; return setTimeout(tick, 2400); }
-      return setTimeout(tick, 45 + Math.random() * 45);
-    }
-    typed.textContent = line.slice(0, --ci);
-    if(ci <= 0){ dir = 1; li = (li + 1) % lines.length; return setTimeout(tick, 450); }
-    return setTimeout(tick, 18);
+const rotator = $(".rotator");
+if(rotator){
+  const words = $$(".rot-word", rotator);
+  const fitWord = ()=>{
+    const on = $(".rot-word.is-on", rotator) || words[0];
+    if(on) rotator.style.width = Math.ceil(on.getBoundingClientRect().width) + "px";
   };
-  if(reduced) typed.textContent = lines[0];
-  else setTimeout(tick, 2600);
+  fitWord();
+  fontsReady.then(fitWord);
+  addEventListener("resize", fitWord);
+  if(!reduced && words.length > 1){
+    let i = 0;
+    setInterval(()=>{
+      const cur = words[i];
+      i = (i + 1) % words.length;
+      const next = words[i];
+      cur.classList.replace("is-on", "is-out");
+      next.classList.remove("is-out");
+      next.classList.add("is-on");
+      fitWord();
+      setTimeout(()=> cur.classList.remove("is-out"), 700);
+    }, 2600);
+  }
 }
 
 /* ---------------------------------------------------------- *
- * 4. Smooth scrolling
+ * 4. Hero prompt: types a question, sends it, answers, repeats
+ * ---------------------------------------------------------- */
+const promptWrap = $(".prompt-wrap");
+if(promptWrap){
+  const typed  = $(".typed", promptWrap);
+  const send   = $(".send", promptWrap);
+  const chips  = $$(".chip", promptWrap);
+  const answer = $(".answer", promptWrap);
+  const line   = $(".answer-line", promptWrap);
+  const rows   = $(".answer-rows", promptWrap);
+  const SCRIPT = [
+    { chip:2, q:"Show invoices waiting for LHDN validation",
+      a:"Three invoices are still with LHDN. The rest cleared this week.",
+      rows:[["Awaiting validation", "3 invoices"], ["Validated this week", "139 invoices"]] },
+    { chip:1, q:"Which items are below their reorder point?",
+      a:"Twelve items are below reorder point. A purchase order is drafted for your approval.",
+      rows:[["Below reorder point", "12 items"], ["Draft purchase order", "Ready to approve"]] },
+    { chip:0, q:"Summarise this month's receivables",
+      a:"Receivables stand at RM 1.12M, collected in 31 days on average.",
+      rows:[["Outstanding", "RM 1.12M"], ["Average days to collect", "31 days"]] }
+  ];
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const fill = (step)=>{
+    line.textContent = step.a;
+    rows.innerHTML = "";
+    step.rows.forEach(([k, v])=>{
+      const row = document.createElement("div");
+      row.className = "answer-row";
+      row.innerHTML = "<span></span><b></b>";
+      row.firstChild.textContent = k;
+      row.lastChild.textContent = v;
+      rows.appendChild(row);
+    });
+  };
+
+  if(reduced){
+    typed.textContent = SCRIPT[0].q;
+    chips[SCRIPT[0].chip].classList.add("is-on");
+    answer.hidden = false; answer.classList.add("show", "done");
+    fill(SCRIPT[0]);
+  }else{
+    let visible = true;
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(es => es.forEach(e => visible = e.isIntersecting), { threshold:0 })
+        .observe(promptWrap);
+    }
+    (async ()=>{
+      await sleep(2400);
+      for(let i = 0; ; i = (i + 1) % SCRIPT.length){
+        while(!visible) await sleep(400);
+        const step = SCRIPT[i];
+        chips.forEach((c, k) => c.classList.toggle("is-on", k === step.chip));
+        for(let n = 1; n <= step.q.length; n++){
+          typed.textContent = step.q.slice(0, n);
+          await sleep(38 + Math.random() * 45);
+        }
+        await sleep(600);
+        send.classList.add("is-armed");
+        await sleep(450);
+        send.classList.add("is-press");
+        await sleep(220);
+        send.classList.remove("is-press");
+        answer.hidden = false;
+        await sleep(40);
+        answer.classList.add("show");
+        await sleep(1100);
+        fill(step);
+        answer.classList.add("done");
+        await sleep(3600);
+        answer.classList.remove("show");
+        send.classList.remove("is-armed");
+        await sleep(520);
+        answer.hidden = true;
+        answer.classList.remove("done");
+        line.textContent = ""; rows.innerHTML = "";
+        for(let n = step.q.length; n >= 0; n--){
+          typed.textContent = step.q.slice(0, n);
+          await sleep(12);
+        }
+        chips.forEach(c => c.classList.remove("is-on"));
+        await sleep(400);
+      }
+    })();
+  }
+}
+
+/* ---------------------------------------------------------- *
+ * 5. Smooth scrolling
  * ---------------------------------------------------------- */
 let lenis = null;
 if(!reduced && typeof Lenis === "function"){
@@ -89,7 +182,7 @@ if(!reduced && typeof Lenis === "function"){
 }
 
 /* ---------------------------------------------------------- *
- * 5. Tickers — each set is cloned until the row is covered,
+ * 6. Tickers — each set is cloned until the row is covered,
  *    then the track moves exactly one set per cycle
  * ---------------------------------------------------------- */
 const tickers = $$(".ticker");
@@ -124,14 +217,15 @@ addEventListener("load", measureTickers);
 addEventListener("resize", measureTickers);
 
 /* ---------------------------------------------------------- *
- * 6. Product windows keep their desktop layout and scale down
+ * 7. Product windows keep their desktop layout and scale down
  *    as one piece on narrower screens
  * ---------------------------------------------------------- */
 const fits = $$(".fit");
 function fitAll(){
   fits.forEach(el=>{
     const box = el.parentElement;
-    const avail = box.clientWidth;
+    // data-minw keeps a window readable on a phone; the box scrolls sideways instead
+    const avail = Math.max(box.clientWidth, parseFloat(el.dataset.minw) || 0);
     if(!avail) return;
     const w = parseFloat(el.dataset.w) || 1240;
     const s = Math.min(1, avail / w);
@@ -145,7 +239,7 @@ addEventListener("resize", fitAll);
 fontsReady.then(fitAll);
 
 /* ---------------------------------------------------------- *
- * 7. Reveal on view
+ * 8. Reveal on view
  * ---------------------------------------------------------- */
 if(reduced || !("IntersectionObserver" in window)){
   $$(".rv").forEach(el => el.classList.add("in"));
@@ -164,7 +258,7 @@ if(reduced || !("IntersectionObserver" in window)){
 }
 
 /* ---------------------------------------------------------- *
- * 8. Scroll-linked: "Automation" rises into place, and each
+ * 9. Scroll-linked: "Automation" rises into place, and each
  *    product card eases back as the next one covers it
  * ---------------------------------------------------------- */
 const grad  = $(".ai-title .grad");
@@ -210,7 +304,7 @@ addEventListener("load", ()=>{ fitAll(); measureStack(); onScroll(); });
 onScroll();
 
 /* ---------------------------------------------------------- *
- * 9. Services panels rotate every 7s with a progress bar
+ * 10. Services panels rotate every 7s with a progress bar
  * ---------------------------------------------------------- */
 const arts = $$(".tab-art");
 const bars = $$(".tab-bars button");
@@ -249,7 +343,7 @@ if(arts.length){
 }
 
 /* ---------------------------------------------------------- *
- * 10. Stories: a swipe row with dots on phones
+ * 11. Stories: a swipe row with dots on phones
  * ---------------------------------------------------------- */
 const storyRow  = $(".story-ticker");
 const storyDots = $(".story-dots");
@@ -271,7 +365,7 @@ if(storyRow && storyDots){
 }
 
 /* ---------------------------------------------------------- *
- * 11. FAQ — one answer open at a time
+ * 12. FAQ — one answer open at a time
  * ---------------------------------------------------------- */
 const qas = $$(".qa");
 const setQa = (qa, open)=>{
@@ -303,7 +397,7 @@ qas.forEach((qa, i)=>{
 });
 
 /* ---------------------------------------------------------- *
- * 12. Nav panel (tablet and phone)
+ * 13. Nav panel (tablet and phone)
  * ---------------------------------------------------------- */
 const nav = $("#nav");
 const burger = $(".burger");
@@ -324,7 +418,96 @@ if(burger && panel){
 }
 
 /* ---------------------------------------------------------- *
- * 13. In-page links land each heading just under the nav
+ * 13b. Full-width hover menu (desktop): hovering the nav opens
+ *      the whole site map, the hovered item stays lit
+ * ---------------------------------------------------------- */
+const mega = $("#mega");
+const navShell = $(".nav-shell");
+if(mega && navShell){
+  const megaIn = $(".mega-in", mega);
+  const megaCols = $$(".mega-col", mega);
+  const deskQ = matchMedia("(min-width: 1200px)");
+  let tOpen = 0, tClose = 0, megaOpen = false;
+  const setMega = (open)=>{
+    if(open && !deskQ.matches) return;
+    if(megaOpen === open) return;
+    megaOpen = open;
+    nav.classList.toggle("mega-open", open);
+    mega.style.height = open ? megaIn.offsetHeight + "px" : "0px";
+    if(!open) megaCols.forEach(c => c.classList.remove("dim"));
+  };
+  const openSoon  = ()=>{ clearTimeout(tClose); clearTimeout(tOpen); tOpen  = setTimeout(()=> setMega(true), 80); };
+  const closeSoon = ()=>{ clearTimeout(tOpen);  clearTimeout(tClose); tClose = setTimeout(()=> setMega(false), 180); };
+  $(".nav-links").addEventListener("mouseenter", openSoon);
+  mega.addEventListener("mouseenter", ()=>{ clearTimeout(tClose); });
+  navShell.addEventListener("mouseleave", closeSoon);
+  navShell.addEventListener("focusin", ()=>{ clearTimeout(tClose); setMega(true); });
+  navShell.addEventListener("focusout", e=>{ if(!navShell.contains(e.relatedTarget)) setMega(false); });
+  $$(".nav-links a[data-mega]").forEach(a=>{
+    a.addEventListener("mouseenter", ()=>{
+      megaCols.forEach(c => c.classList.toggle("dim", c.dataset.mega !== a.dataset.mega));
+    });
+    a.addEventListener("mouseleave", ()=> megaCols.forEach(c => c.classList.remove("dim")));
+  });
+  mega.addEventListener("click", e=>{ if(e.target.closest("a")) setMega(false); });
+  addEventListener("keydown", e=>{ if(e.key === "Escape") setMega(false); });
+  deskQ.addEventListener("change", ()=> setMega(false));
+  addEventListener("resize", ()=>{ if(megaOpen) mega.style.height = megaIn.offsetHeight + "px"; });
+}
+
+/* ---------------------------------------------------------- *
+ * 13c. Horizontal rails (industries): arrows scroll one card,
+ *      arrows disable at each end
+ * ---------------------------------------------------------- */
+$$(".rail").forEach(rail=>{
+  const head = rail.closest(".container")?.querySelector(".rail-nav");
+  if(!head) return;
+  const card = $(".rail-track > *", rail);
+  const step = ()=> card ? card.getBoundingClientRect().width + 24 : rail.clientWidth * .8;
+  const sync = ()=>{
+    const max = rail.scrollWidth - rail.clientWidth - 2;
+    head.querySelector('[data-dir="-1"]').disabled = rail.scrollLeft <= 2;
+    head.querySelector('[data-dir="1"]').disabled  = rail.scrollLeft >= max;
+  };
+  head.querySelectorAll("[data-dir]").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      rail.scrollBy({ left: step() * Number(b.dataset.dir), behavior: reduced ? "auto" : "smooth" });
+    });
+  });
+  rail.addEventListener("scroll", sync, { passive:true });
+  addEventListener("resize", sync);
+  sync();
+});
+
+/* ---------------------------------------------------------- *
+ * 13d. Contact form. Nothing is sent yet: CRT still has to say
+ *      where submissions should land, so the mockup only
+ *      confirms on screen.
+ * ---------------------------------------------------------- */
+const cform = $("#cform");
+if(cform){
+  const need = $("#f-need", cform);
+  const note = $("#support-note", cform);
+  const status = $("#form-status", cform);
+  const syncNeed = ()=>{ note.hidden = need.value !== "support"; };
+  need.addEventListener("change", syncNeed);
+  syncNeed();
+  cform.addEventListener("submit", e=>{
+    e.preventDefault();
+    const missing = ["f-name", "f-email"].filter(id => !$("#" + id, cform).value.trim());
+    if(missing.length){
+      status.textContent = "Please add your name and work email.";
+      status.classList.add("on");
+      $("#" + missing[0], cform).focus();
+      return;
+    }
+    status.textContent = "Thanks. This is a mockup, so nothing has been sent yet \u2014 the form will point at CRT's inbox once you tell us where enquiries should go.";
+    status.classList.add("on");
+  });
+}
+
+/* ---------------------------------------------------------- *
+ * 14. In-page links land each heading just under the nav
  * ---------------------------------------------------------- */
 document.addEventListener("click", e=>{
   const a = e.target.closest('a[href^="#"]');
@@ -345,7 +528,7 @@ document.addEventListener("click", e=>{
 });
 
 /* ---------------------------------------------------------- *
- * 14. Product demo video — plays in its window. The YouTube
+ * 15. Product demo video — plays in its window. The YouTube
  *     player is only requested once someone presses play, and
  *     it starts at 0:12 to skip the intro.
  * ---------------------------------------------------------- */
