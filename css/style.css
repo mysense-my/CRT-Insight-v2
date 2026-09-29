@@ -999,16 +999,20 @@ html.js .rv.in{ opacity:1; transform:none; transition:opacity .8s ease, transfor
   .story-dots{ display:flex; justify-content:center; gap:8px; margin-top:20px; }
   .story-dots i{ width:6px; height:6px; border-radius:50%; background:var(--line-2); transition:background .3s ease, transform .3s ease; }
   .story-dots i.on{ background:var(--ink); transform:scale(1.15); }
-  .hw-rail{ margin-bottom:32px; }
-  .hw-line{ left:12.5%; right:12.5%; }
-  .hw-node{ gap:10px; font-size:11.5px; line-height:15px; }
+  /* the progress bar rides along at the top and you scroll the stages under it */
+  .hw-rail{
+    position:sticky; top:76px; z-index:6; margin:0 -16px 8px; padding:0 16px;
+    background:var(--bg); box-shadow:inset 0 -1px 0 var(--line);
+  }
+  .hw-nodes{ padding:14px 0 16px; }
+  .hw-line{ left:12.5%; right:12.5%; top:21px; }
+  .hw-node{ gap:9px; font-size:11.5px; line-height:15px; }
   .hw-node i{ width:14px; height:14px; }
   .hw-grid{ display:block; }
-  .hw-media{ top:78px; margin-bottom:26px; }
-  .hw-cap{ padding:12px 16px; font-size:14px; }
-  .hw-step{ padding:20px 0 24px; }
-  .hw-step h3{ font-size:20px; margin-bottom:8px; }
-  .hw-step p{ font-size:15px; line-height:24px; }
+  .hw-media{ display:none; }
+  .hw-step{ padding:30px 0 34px; }
+  .hw-step h3{ font-size:21px; margin-bottom:8px; }
+  .hw-step p{ font-size:15.5px; line-height:25px; }
   .faq-grid{ grid-template-columns:1fr; gap:40px; }
   .faq-left h2{ margin-bottom:24px; }
   .faq-left p{ text-wrap:pretty; }

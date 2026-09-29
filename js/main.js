@@ -293,7 +293,9 @@ const hwNodes  = $$(".hw-node");
 const hwFill   = $(".hw-fill");
 function updateHow(){
   if(hwSteps.length < 2) return;
-  const mid = innerHeight * .52;
+  // on a phone the progress bar is pinned near the top, so the step that counts
+  // as "current" is the one just below it, not the one at mid-screen
+  const mid = innerWidth < 810 ? 200 : innerHeight * .52;
   let active = 0;
   hwSteps.forEach((st, i)=>{ if(st.getBoundingClientRect().top < mid) active = i; });
   hwSteps.forEach((st, i)=> st.classList.toggle("dim", i !== active));

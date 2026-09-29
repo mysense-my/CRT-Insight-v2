@@ -125,9 +125,10 @@ distance is measured per card instead of a fixed 770px.
 **"How we work" rebuilt with Site 1's scroll effect.** A horizontal stepper across the top keeps all
 four stages visible at once — that was the client's "one glance" ask — and below it the media panel
 sticks while you read, cross-fading between the four photos as each stage becomes active; inactive
-stages dim. On a phone the same thing happens with the media pinned to the top of the screen and the
-stages scrolling underneath it, so the effect is identical rather than dropped (Site 1 hides the
-image on mobile). Captions sit under the photo, never on it.
+stages dim. On a phone the photo is dropped and the progress bar itself pins under the header instead, so you
+watch the dots fill and the stages light up one by one as you scroll the list. Captions sit under
+the photo, never on it. (The first attempt kept the photo pinned on mobile and the step text
+painted over it — the pinned bar reads far better in the space available.)
 
 **Mobile menu redesigned.** Opening the burger now fills the screen edge to edge: CRT logo and a
 close X in the header, Solutions / Products / Services / Industries as accordion rows that open one
@@ -141,3 +142,9 @@ the next candidates are the Products stack (2,055px) and the Solutions bento (1,
 
 Checked at 320, 390, 768, 1024, 1280, 1440 and 1920px: no sideways scrolling, no console errors, no
 dead anchor links.
+
+**Mobile "How we work", second pass.** The pinned photo was being overlapped by the step text, so
+on phones the photo is gone and the progress bar is what sticks (`top:76px`, tucked under the nav
+pill). The stages scroll under it and light one at a time. The "which stage am I on" threshold is
+200px from the top on phones instead of mid-screen, because the bar sits near the top. Desktop is
+unchanged: two columns, photo panel still sticky and cross-fading. Phone length 13,249px → 13,067px.
