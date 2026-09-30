@@ -918,26 +918,58 @@
             </div>
           </div>
 
-          <!-- TODO: CRT to confirm the support portal URL before this goes live -->
           <div class="form-note" id="support-note" hidden>
-            <p>Already running a system with us? The helpdesk is the fastest route.</p>
-            <p><a href="mailto:support@crt-insights.com">support@crt-insights.com</a> &middot; <a href="tel:1700818976">1700 818 976</a></p>
+            <p>Raising a ticket with the helpdesk. Prefer to talk?
+              <a href="mailto:support@crt-insights.com">support@crt-insights.com</a> or
+              <a href="tel:1700818976">1700 818 976</a>.</p>
           </div>
 
           <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name"></div>
           <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
           <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
           <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+
+          <div class="field support-only" hidden>
+            <label for="f-system">Which system?</label>
+            <div class="sel">
+              <select id="f-system" name="system">
+                <option>Dynamics 365 Business Central</option>
+                <option>Acumatica Cloud ERP</option>
+                <option>ACT add-on suite</option>
+                <option>Not sure</option>
+              </select>
+              <svg class="caret" aria-hidden="true"><use href="#i-caret"/></svg>
+            </div>
+          </div>
+          <div class="field support-only" hidden>
+            <label for="f-urgency">How urgent?</label>
+            <div class="sel">
+              <select id="f-urgency" name="urgency">
+                <option>We are blocked, nobody can work</option>
+                <option>Something is wrong but we can carry on</option>
+                <option>A question or a change request</option>
+              </select>
+              <svg class="caret" aria-hidden="true"><use href="#i-caret"/></svg>
+            </div>
+          </div>
+
           <div class="field field-wide">
-            <label for="f-msg">What would you like to talk about?</label>
+            <label for="f-msg" id="f-msg-label">What would you like to talk about?</label>
             <textarea id="f-msg" name="message" rows="4"></textarea>
           </div>
 
           <div class="form-foot">
-            <button class="btn btn-primary" type="submit"><span class="in"><span class="roll"><span>Send enquiry</span><span aria-hidden="true">Send enquiry</span></span></span></button>
+            <button class="btn btn-primary" type="submit"><span class="in"><span class="roll"><span id="f-send">Send enquiry</span><span aria-hidden="true">Send enquiry</span></span></span></button>
             <p class="form-status" id="form-status" role="status"></p>
           </div>
         </form>
+
+        <div class="form-done" id="form-done" hidden>
+          <span class="form-tick"><svg><use href="#i-check"/></svg></span>
+          <h3 id="done-title">Thanks, we have got your details</h3>
+          <p id="done-body">The CRT team will pick this up and get back to you.</p>
+          <button class="btn btn-ghost btn-sm" type="button" id="form-again"><span class="in">Send another</span></button>
+        </div>
       </div>
     </div>
   </section>

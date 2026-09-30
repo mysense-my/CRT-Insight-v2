@@ -74,10 +74,11 @@ became one swipeable row instead of four stacked ones.
 
 ## Waiting on CRT
 
-1. **Where do form submissions go?** An inbox, HubSpot, a CRM? Until they say, the form only
-   confirms on screen. Wiring it up is a small job once we know.
-2. **The support portal URL.** The dropdown option exists and shows the helpdesk email and phone;
-   there is a `TODO` comment in `index.html` where the link goes.
+1. ~~Where do form submissions go?~~ Not needed for a mockup. The form shows a proper sent
+   state instead, and we wire up a destination when the site is actually built.
+2. ~~The support portal URL.~~ There is no external portal to link to. Picking "Support portal"
+   turns the form into a support ticket (which system, how urgent, what is happening) with the
+   helpdesk email and phone alongside it. A dedicated support page is a separate build.
 3. **Industry photos.** The six are free stock from Burst by Shopify (commercial use, no
    attribution). Three came from Site 3, three are new. If CRT has their own, swap them in —
    `assets/img/ind-*.jpg`, square, 900×900.
@@ -148,3 +149,20 @@ on phones the photo is gone and the progress bar is what sticks (`top:76px`, tuc
 pill). The stages scroll under it and light one at a time. The "which stage am I on" threshold is
 200px from the top on phones instead of mid-screen, because the bar sits near the top. Desktop is
 unchanged: two columns, photo panel still sticky and cross-fading. Phone length 13,249px → 13,067px.
+
+**Round 3 — the form is the support portal.** The two open questions on the form are closed: this
+is a mockup, so it does not need a submission destination, and the support portal is something we
+build rather than a link CRT hands over. Picking "Support portal" now switches the same form into a
+support ticket: the message label becomes "What is happening?", two extra fields appear (which
+system, how urgent), the button becomes "Raise a support ticket", and the helpdesk email and phone
+sit above it. Submitting any of the three modes swaps the card for a tick and a confirmation,
+worded per mode, with a "Send another" button. No invented response times.
+
+**Bug found while testing:** `hidden` was doing nothing on `.cform`, `.field` and `.answer` because
+our own `display:grid` / `display:flex` rules beat the browser's `[hidden]` default. The support
+fields and the sent panel were visible all the time. Fixed with `[hidden]{ display:none !important }`
+in the reset. That also means the hero answer bubble is genuinely out of the layout when hidden now,
+which is checked and still animating correctly.
+
+Re-checked at 320, 390, 768, 1024, 1280, 1440 and 1920px: no sideways scrolling, no console errors,
+no dead anchor links.

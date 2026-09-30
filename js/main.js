@@ -537,18 +537,46 @@ $$(".rail").forEach(rail=>{
 });
 
 /* ---------------------------------------------------------- *
- * 13d. Contact form. Nothing is sent yet: CRT still has to say
- *      where submissions should land, so the mockup only
- *      confirms on screen.
+ * 13d. Contact form. One form, three jobs: booking a
+ *      consultation, raising a support ticket, or anything
+ *      else. Nothing is sent, this is a mockup.
  * ---------------------------------------------------------- */
 const cform = $("#cform");
 if(cform){
-  const need = $("#f-need", cform);
-  const note = $("#support-note", cform);
-  const status = $("#form-status", cform);
-  const syncNeed = ()=>{ note.hidden = need.value !== "support"; };
+  const card    = cform.parentElement;
+  const need    = $("#f-need", cform);
+  const note    = $("#support-note", cform);
+  const status  = $("#form-status", cform);
+  const msgLbl  = $("#f-msg-label", cform);
+  const sendLbl = $("#f-send", cform);
+  const supportFields = $$(".support-only", cform);
+  const done    = $("#form-done", card);
+  const again   = $("#form-again", card);
+
+  const MODES = {
+    consultation: { label:"What would you like to talk about?", send:"Send enquiry",
+                    title:"Thanks, we have got your details",
+                    body:"The CRT team will pick this up and get back to you." },
+    support:      { label:"What is happening?", send:"Raise a support ticket",
+                    title:"Your ticket is with the helpdesk",
+                    body:"Our support team will follow up on the details you gave us." },
+    other:        { label:"How can we help?", send:"Send enquiry",
+                    title:"Thanks, we have got your details",
+                    body:"The CRT team will pick this up and get back to you." }
+  };
+
+  const syncNeed = ()=>{
+    const mode = MODES[need.value] || MODES.other;
+    const support = need.value === "support";
+    note.hidden = !support;
+    supportFields.forEach(f => f.hidden = !support);
+    msgLbl.textContent = mode.label;
+    sendLbl.textContent = mode.send;
+    sendLbl.nextElementSibling.textContent = mode.send;
+  };
   need.addEventListener("change", syncNeed);
   syncNeed();
+
   cform.addEventListener("submit", e=>{
     e.preventDefault();
     const missing = ["f-name", "f-email"].filter(id => !$("#" + id, cform).value.trim());
@@ -558,8 +586,20 @@ if(cform){
       $("#" + missing[0], cform).focus();
       return;
     }
-    status.textContent = "Thanks. This is a mockup, so nothing has been sent yet \u2014 the form will point at CRT's inbox once you tell us where enquiries should go.";
-    status.classList.add("on");
+    const mode = MODES[need.value] || MODES.other;
+    $("#done-title", done).textContent = mode.title;
+    $("#done-body", done).textContent  = mode.body;
+    cform.hidden = true;
+    done.hidden = false;
+  });
+
+  again.addEventListener("click", ()=>{
+    cform.reset();
+    status.textContent = "";
+    status.classList.remove("on");
+    syncNeed();
+    done.hidden = true;
+    cform.hidden = false;
   });
 }
 
