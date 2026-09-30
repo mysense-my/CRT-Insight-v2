@@ -663,7 +663,10 @@ html.js .rv.in{ opacity:1; transform:none; transition:opacity .8s ease, transfor
 .icon-tile{ width:56px; height:56px; margin:0 33px; border-radius:12px; display:grid; place-items:center; background:rgba(255,255,255,.92); box-shadow:0 0 0 1px var(--line-2), 0 8px 18px rgba(0,43,93,.06); color:var(--navy); }
 .icon-tile img{ width:28px; height:28px; object-fit:contain; }
 .icon-tile svg{ width:24px; height:24px; }
-.integ-cta{ position:relative; z-index:1; display:flex; justify-content:center; margin-top:40px; }
+/* one call-to-action block, reused at the foot of several sections */
+.sec-cta{ position:relative; z-index:1; display:grid; justify-items:center; gap:16px; margin-top:44px; text-align:center; }
+.sec-cta p{ font-size:17px; line-height:27px; color:var(--ink-70); max-width:540px; text-wrap:pretty; }
+.sec-cta-btns{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
 
 /* ============================================================
    EVENTS & STORIES — ticker cards
@@ -948,6 +951,10 @@ html.js .rv.in{ opacity:1; transform:none; transition:opacity .8s ease, transfor
   .answer-row{ font-size:13px; padding:8px 10px; }
   .hero-light{ height:720px; }
   .beams{ left:10%; top:-560px; }
+  .sec-cta{ margin-top:34px; gap:14px; }
+  .sec-cta p{ font-size:16px; line-height:26px; }
+  .sec-cta-btns{ flex-direction:column; width:100%; }
+  .sec-cta-btns .btn{ width:100%; }
   .cta{ padding:72px 0; }
   .contact-grid{ gap:32px; }
   .contact-card{ padding:20px; }
@@ -1032,6 +1039,10 @@ html.js .rv.in{ opacity:1; transform:none; transition:opacity .8s ease, transfor
   .qa button{ font-size:16px; padding:14px 16px; }
   .ans p{ padding:0 16px 16px; }
   .end-bg{ top:120px; }
+  .sec-cta{ margin-top:34px; gap:14px; }
+  .sec-cta p{ font-size:16px; line-height:26px; }
+  .sec-cta-btns{ flex-direction:column; width:100%; }
+  .sec-cta-btns .btn{ width:100%; }
   .cta{ padding:72px 0; }
   .cta-in .hero-cta{ width:100%; }
   .foot-card{ padding:28px 20px 0; }

@@ -166,3 +166,26 @@ which is checked and still animating correctly.
 
 Re-checked at 320, 390, 768, 1024, 1280, 1440 and 1920px: no sideways scrolling, no console errors,
 no dead anchor links.
+
+**Round 4 — more calls to action.** Six sections ended without one, so each now closes with the
+same small block: a line of copy and one or two buttons, reusing the existing button styles rather
+than a new pattern.
+
+| Section | Line | Buttons |
+|---|---|---|
+| Solutions | Want this running in your business? | Book a Consultation, See the platforms |
+| Industries | Do not see your industry? Tell us what your business runs on. | Talk to us |
+| Products | Not sure which platform fits? We will walk you through both. | Book a Consultation, See how we work |
+| Services | Wherever you are in the journey, we can pick it up from there. | Book a Consultation |
+| Integrations | Already on Business Central or Acumatica? We connect the rest. | Book a Consultation, Explore the add-ons |
+| How we work | Step one is a conversation. New to ERP? Your first strategy call is free. | Book a Consultation |
+
+The integrations block already had a lone ghost button; it now uses the same `.sec-cta` pattern as
+the rest. The free first strategy call is CRT's own line, already answered in the FAQ.
+
+**Cost:** the page is 13,165px on a laptop and 13,866px on a phone, up about 730px from before the
+CTAs. That runs against the client's "too many scrolls" note, so if they raise it again the blocks
+to trim are the Products stack (2,055px) and the Solutions bento (1,403px), not these.
+
+Checked at 320, 390, 768, 1024, 1280, 1440 and 1920px: no sideways scrolling, no console errors, no
+dead anchor links.
